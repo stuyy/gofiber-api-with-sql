@@ -11,7 +11,9 @@ import (
 
 func InitDB() {
 	DSN := os.Getenv("DB_URI")
-	DB, err := gorm.Open(mysql.Open(DSN), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(DSN), &gorm.Config{})
+
+	DB = db
 
 	if err != nil {
 		fmt.Println(err)
